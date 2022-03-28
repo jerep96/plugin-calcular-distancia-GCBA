@@ -1,0 +1,47 @@
+<script src="components/moment/moment.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-12 ">
+            <div class="form-container">
+                <h1>Contacto</h1>
+                <form [formGroup]="contactForm" (ngSubmit)="onSaveForm()">
+                    <input class="form-control mb-2" type="text" formControlName="name" placeholder="Nombre">
+                    <div class="alert alert-danger" *ngIf="name?.invalid && (name?.dirty || name?.touched)" role="alert">
+                        <div *ngIf="name?.errors?.['minlength']">
+                            Name must be at least 4 characters long.
+                          </div>
+                    </div>
+                    <input class="form-control mb-2" type="text" formControlName="lastname" placeholder="Apellido">
+                    <div class="alert alert-danger" *ngIf="lastname?.invalid && (lastname?.dirty || lastname?.touched)" role="alert">
+                        <div *ngIf="lastname?.errors?.['required']">
+                            Requerido.
+                          </div>
+                    </div>
+                    <input class="form-control mb-2" type="number" formControlName="email" placeholder="numero">
+                    <input class="form-control mb-2" type="email" formControlName="email" placeholder="email">
+                    <input class="form-control mb-2" type="email" formControlName="email" placeholder="email">
+                    <input class="form-control mb-2" type="email" formControlName="email" placeholder="email">
+                    <input class="form-control mb-2" type="email" formControlName="email" placeholder="email">
+                    <input class="form-control mb-2" type="email" formControlName="email" placeholder="email">
+                    <textarea  class="form-control mb-2" formControlName="message" placeholder="Escribe un mensaje"></textarea>
+                    <select class="form-control form-select-lg mb-3" aria-label=".form-select-lg example" formControlName="select" >
+                        <option selected>--</option>
+                        <option value="01">Valor 1</option>
+                        <option value="02">Valor 2</option>
+                    </select>
+                    <div class="alert alert-danger" *ngIf="select?.invalid && (select?.dirty || select?.touched)" role="alert">
+                        <div *ngIf="select?.errors?.['required']">
+                            Requerido.
+                          </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary w-100" [disabled]="!contactForm.valid">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
