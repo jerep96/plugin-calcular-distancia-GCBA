@@ -151,10 +151,7 @@ export class OsfService {
   //My Stuff
   pluginOpen(message: any) {
     console.log('Mensaje', message);
-    if (!message.activity) {
-      alert("No hay datos de la actividad.");
-      return;
-    }
+
     this.message = message;
     let activityStr = JSON.parse(message.activity.ul_os_json.replace(/'/g, '"'))
     console.log('primer parser', activityStr)
